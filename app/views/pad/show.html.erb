@@ -1,0 +1,15 @@
+<div id="pad" class="pad-container"></div>
+<%= javascript_include_tag "etherpad" %>
+<script type="text/javascript">
+	$(function(){
+		$("#pad").pad({
+			'padId':'<%=@pad.id%>', 
+			'host':'http://localhost:9001',
+			'userName': '<%=current_user.name%>', 
+			'showControls': true, 
+			'showChat': true,
+			'width': '1170px',
+			'height': '600px'}
+		);
+	});
+</script>
