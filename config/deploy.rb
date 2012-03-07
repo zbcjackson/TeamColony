@@ -14,6 +14,9 @@ role :db,  "10.86.65.53", :primary => true # This is where Rails migrations will
 
 require "bundler/capistrano"
 
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
