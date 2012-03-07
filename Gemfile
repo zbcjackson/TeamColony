@@ -25,8 +25,6 @@ gem 'jquery-rails'
 gem 'cancan'
 gem 'etherpad-lite'
 
-gem 'mongrel', '1.2.0.pre2'
-
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -34,7 +32,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'jbuilder'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
