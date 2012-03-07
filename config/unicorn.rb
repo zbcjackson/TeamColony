@@ -37,8 +37,8 @@ pid "/var/www/current/tmp/unicorn.pid"
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/var/www/tmp/log/unicorn.stderr.log"
-stdout_path "/var/www/tmp/log/unicorn.stdout.log"
+stderr_path "/var/www/current/tmp/log/unicorn.stderr.log"
+stdout_path "/var/www/current/tmp/log/unicorn.stdout.log"
 
 # combine REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
