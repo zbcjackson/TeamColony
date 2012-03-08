@@ -1,13 +1,13 @@
 class PadController < ApplicationController
   def create
-    ether = EtherpadLite.connect(:local, "KLLJbqN8mmbVPDY2J3ecgEE0dvEboELB")
+    ether = EtherpadLite.connect(:local, File.new(Rails.configuration.pad_api_key_file))
     group = ether.group "team_colony_1"
     pad = group.pad params[:name]
     redirect_to pad, :notice => "New pad has been created."
   end
   
   def show
-    ether = EtherpadLite.connect(:local, "KLLJbqN8mmbVPDY2J3ecgEE0dvEboELB")
+    ether = EtherpadLite.connect(:local, File.new(Rails.configuration.pad_api_key_file))
     @group = ether.group "team_colony_1"
     @pad = @group.pad(params[:padId])
     authorize! :edit, @pad

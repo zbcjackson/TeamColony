@@ -34,4 +34,8 @@ TeamColony::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  
+  config.pad_api_key_file = '/var/www/pad/current/APIKEY.txt'
+
 end

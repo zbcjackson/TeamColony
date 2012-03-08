@@ -6,19 +6,14 @@ set :repository,  "zbcjackson@iagile.me:~/src/TeamColony"
 
 set :scm, :git
 
-set :deploy_to, "/var/www"
+set :deploy_to, "/var/www/#{application}"
 set :user, "jackson"
 set :runner, user
 default_run_options[:pty] = true
 
-
-set :bundle_flags,    "--quiet"
-set :bundle_dir,      ""
-require "bundler/capistrano"
-
-# Consider remove rvm
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+require "bundler/capistrano"
+require "rvm/capistrano"															 
 set :rvm_ruby_string, '1.9.2' # you probably have this already
 set :rvm_type, :user # this is the money config, it defaults to :system
 
@@ -67,7 +62,7 @@ namespace :deploy do
   
   desc "Precompile"
   task :precompile, :roles => :app, :except => { :no_release => true } do
-    run "cd #{deploy_to}/current && rake assets:precompile RAILS_ENV=#{rails_env}"
+    run "cd #{release_path} && rake assets:precompile RAILS_ENV=#{rails_env}"
   end
   
   desc "Start TeamColony server"
@@ -96,7 +91,7 @@ description "#{application}"
 start on started networking
 stop on runlevel [!2345]
 
-env TCHOME=#{deploy_to}/current
+env TCHOME=#{release_path}
 env TCLOGS=/var/log/#{application}
 env TCUSER=#{runner}
 
@@ -111,7 +106,7 @@ end script
 
 script
   cd $TCHOME
-  exec su -s /bin/sh -c 'exec "$0" "$@"' $TCUSER -- bundle exec unicorn_rails -c config/unicorn.rb -E #{rails_env} -d \
+  exec su -s /bin/sh -c 'exec "$0" "$@"' $TCUSER -- /home/jackson/.rvm/bin/r192_unicorn_rails -c config/unicorn.rb -E #{rails_env} -d \
                         >> $TCLOGS/access.log \
                         2>> $TCLOGS/error.log
 end script
@@ -127,3 +122,10 @@ before 'deploy:setup', 'deploy:create_deploy_to_with_sudo'
 after 'deploy:setup', 'deploy:configure_database'
 after 'deploy:create_symlink', 'deploy:write_upstart_script'
 after 'deploy:create_symlink', 'deploy:precompile'
+
+namespace :rvm do
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{release_path}"
+  end
+	after "deploy", "rvm:trust_rvmrc"
+end

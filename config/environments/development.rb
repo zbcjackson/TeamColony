@@ -34,4 +34,6 @@ TeamColony::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.pad_api_key_file = "/Users/zbcjackson/src/etherpad-lite/APIKEY.txt"
 end
