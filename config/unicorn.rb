@@ -8,6 +8,27 @@
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.
 
+APP_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+
+# Use RVM
+if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
+  begin
+    rvm_path = File.dirname(File.dirname(ENV['MY_RUBY_HOME']))
+    rvm_lib_path = File.join(rvm_path, 'lib')
+    $LOAD_PATH.unshift rvm_lib_path
+    require 'rvm'
+    RVM.use_from_path! APP_ROOT
+  rescue LoadError
+    raise "RVM ruby lib is currently unavailable."
+  end
+end
+
+# Use Bundler
+ENV['BUNDLE_GEMFILE'] = File.join(APP_ROOT, 'Gemfile')
+puts "BUNDLER_GEMFILE=#{ENV['BUNDLE_GEMFILE']}"
+require 'bundler/setup'
+
+
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
 worker_processes 4
