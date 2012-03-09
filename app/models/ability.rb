@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user
-      can :edit, EtherpadLite::Pad
+      can :manage, Pad
     end
   end
 end

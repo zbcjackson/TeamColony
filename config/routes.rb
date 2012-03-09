@@ -5,8 +5,9 @@ TeamColony::Application.routes.draw do
   match "signin" => "sessions#new"
   match "signout" => "sessions#destroy"
   
-  match "pad/:padId" => "pad#show"
-  post "pad/create" => "pad#create"
+  #match "pads/:padId" => "pads#show"
+  #post "pads/create" => "pads#create"
+  resources :pads
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
