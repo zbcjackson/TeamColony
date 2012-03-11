@@ -1,10 +1,11 @@
 TeamColony::Application.routes.draw do
   resources :users
   resources :sessions
-  match "signup" => "users#new"
-  match "signin" => "sessions#new"
-  match "signout" => "sessions#destroy"
-  
+  get "signup" => "users#new", :as => "signup"
+  post "signup" => "users#create", :as => "signup"
+  get "signin" => "sessions#new", :as => "signin"
+  post "signin" => "sessions#create", :as => "signin"
+  get "signout" => "sessions#destroy", :as => "signout"
   #match "pads/:padId" => "pads#show"
   #post "pads/create" => "pads#create"
   resources :pads

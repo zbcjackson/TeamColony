@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user
-      can :manage, Pad
+      can :manage, :all
     end
   end
 end

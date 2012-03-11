@@ -10,7 +10,7 @@ class PadsController < ApplicationController
     if @pad.save
       redirect_to @pad, :notice => "New pad has been created."
     else
-      redirect_to pads_url, :alert => "Error in creating a pad: #{@pad.errors.values}"
+      redirect_to pads_url, :alert => "Error in creating a pad"
     end
   end
   
