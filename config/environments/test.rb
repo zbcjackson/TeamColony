@@ -35,8 +35,6 @@ TeamColony::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  config.action_controller.session = {:domain => '.iagile.me'}
-
   config.pad_api_key_file = '/usr/local/pad/APIKEY.txt'
   config.pad_host = "http://pad.iagile.me"
 
