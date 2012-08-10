@@ -16,8 +16,8 @@ test:
   adapter: mysql2
   encoding: utf8
   database: beta
-  username: root#<-- MAKE UP A NON "root" USER
-  password: j@cks0n! # <-- MAKE UP ANY PASSWORD (can't be empty)
+  username: root
+  password: j@cks0n!
   hostname: beta.iagile.me
   #socket: /tmp/mysql.sock <-- YOU CAN REMOVE THIS LINE
 
@@ -25,7 +25,7 @@ production:
   adapter: mysql2
   encoding: utf8
   database: teamcolony
-  username: root#<-- MAKE UP A NON "root" USER
-  password: j@cks0n! # <-- MAKE UP ANY PASSWORD (can't be empty)
+  username: root
+  password: j@cks0n!
   hostname: teamcolony.iagile.me
   #socket: /tmp/mysql.sock <-- YOU CAN REMOVE THIS LINE
