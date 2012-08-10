@@ -6,15 +6,17 @@ set :repository,  "zbcjackson@iagile.me:~/src/TeamColony"
 
 set :scm, :git
 
+set :ssh_options, {:forward_agent => true}
+set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
-set :user, "jackson"
-set :runner, user
+set :user, "ubuntu"
+set :runner, "railsu"
 default_run_options[:pty] = true
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "bundler/capistrano"
 require "rvm/capistrano"															 
-set :rvm_ruby_string, '1.9.2' # you probably have this already
+set :rvm_ruby_string, '1.9.3' # you probably have this already
 set :rvm_type, :user # this is the money config, it defaults to :system
 
 

@@ -35,6 +35,8 @@ TeamColony::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  config.logger = Logger.new(STDOUT)
   config.log_level = :error
   config.pad_api_key_file = "/Users/zbcjackson/src/etherpad-lite/APIKEY.txt"
+  config.pad_host = "http://localhost:9001"
 end

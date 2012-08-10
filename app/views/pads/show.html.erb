@@ -5,12 +5,12 @@
 	$(function(){
 		$("#pad").pad({
 			'padId':'<%=@ether_pad.id%>', 
-			'host':'http://localhost:9001',
+			'host':'<%=Rails.configuration.pad_host%>',
 			'userName': '<%=current_user.name%>', 
 			'showControls': true, 
 			'showChat': true,
-			'width': '1170px',
-			'height': '600px'}
+			'width': '100%',
+			'height': '100%'}
 		);
 	});
 </script>

@@ -67,5 +67,6 @@ TeamColony::Application.configure do
   
   
   config.pad_api_key_file = '/var/www/pad/current/APIKEY.txt'
-  
+  config.pad_host = "http://pad.iagile.me"
+
 end

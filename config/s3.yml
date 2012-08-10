@@ -1,0 +1,9 @@
+test:
+  aws_access_key: AKIAI35BTSPI7AASJNGQ
+  aws_secret_access_key: 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
+  bucket_base_name: beta.iagile.me
+
+production:
+  aws_access_key: AKIAI35BTSPI7AASJNGQ
+  aws_secret_access_key: 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
+  bucket_base_name: teamcolony.iagile.me
