@@ -9,8 +9,8 @@ set :scm, :git
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
-set :user, "ubuntu"
-set :runner, "railsu"
+set :user, "railsu"
+set :runner, user
 default_run_options[:pty] = true
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
