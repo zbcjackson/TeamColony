@@ -29,7 +29,7 @@ class PadsController < ApplicationController
     cookies[:sessionID] = {
       :value => sess.id,
       :expires => 1.year.from_now,
-      :domain => 'iagile.me'
+      :domain => '.iagile.me'
     }
   end
   
