@@ -2,7 +2,7 @@ class PadsController < ApplicationController
   load_and_authorize_resource
     
   def create
-    ether = EtherpadLite.connect(:local, File.new(Rails.configuration.pad_api_key_file))
+    ether = EtherpadLite.connect(Rails.configuration.pad_host_local, File.new(Rails.configuration.pad_api_key_file))
     group = ether.group "team_colony_1"
     pad = group.pad "team_colony_#{@pad.title}"
     @pad.group_id = group.id
@@ -15,7 +15,7 @@ class PadsController < ApplicationController
   end
   
   def show
-    ether = EtherpadLite.connect(:local, File.new(Rails.configuration.pad_api_key_file))
+    ether = EtherpadLite.connect(Rails.configuration.pad_host_local, File.new(Rails.configuration.pad_api_key_file))
     @group = ether.group "team_colony_1"
     @ether_pad = @group.pad(@pad.pad_id)
     author = ether.author("team_colony_#{current_user.id}", :name => current_user.name)

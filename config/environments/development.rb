@@ -39,4 +39,5 @@ TeamColony::Application.configure do
   config.log_level = :error
   config.pad_api_key_file = "/Users/zbcjackson/src/etherpad-lite/APIKEY.txt"
   config.pad_host = "http://localhost:9001"
+  config.pad_host_local = "http://localhost:9001"
 end
