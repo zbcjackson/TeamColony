@@ -26,7 +26,7 @@ class PadsController < ApplicationController
     end
     session[:pad_sessions][@group.id] = sess.id
     # Set the EtherpadLite session cookie. This will automatically be picked up by the jQuery plugin's iframe.
-    cookies[:sessionID] = {:value => sess.id, :domain => "pad.iagile.me"}
+    cookies[:sessionID] = {:value => sess.id, :domain => :all }
   end
   
 end
