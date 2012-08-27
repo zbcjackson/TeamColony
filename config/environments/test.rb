@@ -35,6 +35,17 @@ TeamColony::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "mail.iagile.me",
+    :port                 => 587,
+    :user_name            => 'teamcolony@iagile.me',
+    :password             => 'vkgOWRDYK80IgB',
+    :authentication       => 'plain',
+    :enable_starttls_auto => false  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
   config.pad_api_key_file = '/usr/local/pad/APIKEY.txt'
   config.pad_host = "http://pad.iagile.me"
   config.pad_host_local = "http://localhost:9002"

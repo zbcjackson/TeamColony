@@ -33,9 +33,10 @@
 				<div id="user_nav">
 					<ul class="nav">
 						<% if current_user %>
+						<li><%= link_to current_user.name, profile_path %></li>
 						<li><%= link_to "Sign out", signout_path %></li>
 						<% else %>
-						<li><%= link_to "Sign up", signup_path %></li>
+						<li></li>
 						<li><%= link_to "Sign in", signin_path %></li>
 						<% end %>
 					</ul>

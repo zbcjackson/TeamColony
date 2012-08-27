@@ -1,0 +1,13 @@
+<h1>Invitation</h1>
+
+<%= form_tag invitation_path, :class => "well" do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], :placeholder => "Emails", :class => "input-xxlarge" %>
+  </div>
+  <div class="field">
+    <%= label_tag :message %>
+    <%= text_area_tag :message, "Welcome to Team Colony", :placeholder => "Message", :class => "input-xxlarge", :rows => 5 %>
+  </div>
+  <div class="actions"><%= submit_tag "Send Invitation", :class => "btn btn-primary" %></div>
+<% end %>

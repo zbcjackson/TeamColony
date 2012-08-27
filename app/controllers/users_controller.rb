@@ -11,5 +11,14 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def profile
+    
+  end
+
+  def invitation
+    UserMailer.invitation_letter(current_user, params[:email], params[:message]).deliver
+    redirect_to profile_url, :notice => "Invitation sent!"
+  end
   
 end

@@ -6,6 +6,8 @@ TeamColony::Application.routes.draw do
   get "signin" => "sessions#new", :as => "signin"
   post "signin" => "sessions#create", :as => "signin"
   get "signout" => "sessions#destroy", :as => "signout"
+  get "profile" => "users#profile", :as => "profile"
+  post "invitation" => "users#invitation", :as => "invitation"
   #match "pads/:padId" => "pads#show"
   #post "pads/create" => "pads#create"
   resources :pads
