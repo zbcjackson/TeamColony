@@ -47,7 +47,7 @@ TeamColony::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   
   config.logger = Logger.new(STDOUT)
-  config.log_level = :error
+  config.log_level = :debug
   config.pad_api_key_file = "/Users/zbcjackson/src/etherpad-lite/APIKEY.txt"
   config.pad_host = "http://localhost:9001"
   config.pad_host_local = "http://localhost:9001"

@@ -27,5 +27,6 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
+  <%= f.hidden_field :invitation_token %>
   <div class="actions"><%= f.submit "Sign Up", :class => "btn btn-primary" %></div>
 <% end %>

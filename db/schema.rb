@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309075142) do
+ActiveRecord::Schema.define(:version => 20120901140902) do
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.integer  "recipient_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "invitations", ["recipient_id"], :name => "index_invitations_on_recipient_id"
+  add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
 
   create_table "pads", :force => true do |t|
     t.string   "title"

@@ -1,7 +1,7 @@
 TeamColony::Application.routes.draw do
   resources :users
   resources :sessions
-  get "signup" => "users#new", :as => "signup"
+  get "signup/:invitation_token" => "users#new", :as => "signup"
   post "signup" => "users#create", :as => "signup"
   get "signin" => "sessions#new", :as => "signin"
   post "signin" => "sessions#create", :as => "signin"
