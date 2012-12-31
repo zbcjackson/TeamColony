@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :password, :on => :create
   validates :email, :uniqueness => true
 
+  has_and_belongs_to_many :groups
+
   has_one :invitation, :class_name => "Invitation", :foreign_key => "recipient_id"
   validate :invitation_is_valid
 
