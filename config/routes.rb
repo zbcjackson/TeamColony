@@ -11,6 +11,7 @@ TeamColony::Application.routes.draw do
   #match "pads/:padId" => "pads#show"
   #post "pads/create" => "pads#create"
   resources :pads
+  resources :groups
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,22 @@
+<button id="newGroup" class="btn btn-primary" data-toggle="modal" data-target="#newGroupDlg">New Group</button>
+<ul>
+<% @groups.each do |group| %>
+	<li><%= link_to group.name, group %></li>
+<% end %>
+</ul>
+<div class="modal hide fade" id="newGroupDlg">
+	<div class="modal-header">
+	  <a class="close" data-dismiss="modal">×</a>
+	  <h3>New Group</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_for Group.new, :id => "newGroupForm" do |f| %>
+		<p>Input group's name</p>
+		<%= f.text_field :name %>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+	  <%= submit_tag "Create", :class => "btn btn-primary", "data-target" => "#new_group" %>
+	  <a href="#" class="btn" data-dismiss="modal">Close</a>
+	</div>
+</div>
